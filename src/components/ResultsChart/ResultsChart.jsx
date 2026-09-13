@@ -1,0 +1,160 @@
+import { use } from 'react';
+import {
+  Bar,
+  BarChart,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import { ThemeContext } from '../../provider/ThemeContext';
+
+const ResultsChart = ({
+  totalIncome,
+  totalExpense,
+  totalBalance,
+  selectedMonthYear,
+}) => {
+  const chartData = [
+    {
+      date: selectedMonthYear,
+      type: 'Income',
+      amount: totalIncome,
+    },
+    {
+      date: selectedMonthYear,
+      type: 'Expense',
+      amount: totalExpense,
+    },
+    {
+      date: selectedMonthYear,
+      type: 'Balance',
+      amount: totalBalance,
+    },
+  ];
+
+  const { theme } = use(ThemeContext);
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+
+      return (
+        <div className="bg-white border rounded-xl shadow-lg p-4">
+          <p
+            className={`font-bold ${
+              data.type === 'Income'
+                ? 'text-green-600'
+                : data.type === 'Expense'
+                  ? 'text-red-600'
+                  : 'text-[#5c23be]'
+            }`}
+          >
+            {data.type}
+          </p>
+
+          <p
+            className={
+              data.type === 'Income'
+                ? 'text-green-600'
+                : data.type === 'Expense'
+                  ? 'text-red-600'
+                  : 'text-[#5c23be]'
+            }
+          >
+            Amount: <strong>${data.amount}</strong>
+          </p>
+
+          <p className="text-[#5c23be]">
+            Date: <strong>{data.date || 'All Time Periods'}</strong>
+          </p>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <div className="w-full 2xl:h-170 xl:max-w-7xl md:max-w-6xl max-sm:max-w-4xl sm:max-w-4xl max-sm:h-87.5 sm:h-100 md:h-100 lg:h-110 xl:h-120 mt-1 mb-20">
+      <p className="text-[#5c23be] text-lg font-bold pb-2">
+        Report By Transaction Type Chart:
+      </p>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          width={650}
+          height={350}
+          data={chartData}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 20,
+            bottom: 40,
+          }}
+        >
+          <XAxis
+            dataKey="type"
+            label={{
+              value: 'Transaction Type',
+              position: 'bottom',
+              offset: 15,
+            }}
+          />
+
+          <YAxis
+            width={80}
+            tickFormatter={value => `$${value}`}
+            label={{
+              value: 'Amount ($)',
+              angle: -90,
+              position: 'left',
+              offset: 10,
+            }}
+          />
+
+          {/* <Tooltip formatter={value => [`$${value}`, 'Amount']} /> */}
+
+          {/* ================================================= */}
+          {/* <Tooltip
+            labelFormatter={(label, payload) => {
+              if (payload.length) {
+                return `${label} (${payload[0].payload.date})`;
+              }
+              return label;
+            }}
+            formatter={value => [`$${value}`, 'Amount']}
+          /> */}
+
+          {/* ================================================= */}
+          <Tooltip content={CustomTooltip} />
+
+          <Bar dataKey="amount">
+            {chartData.map((entry, index) => (
+              <Cell
+                key={index}
+                fill={
+                  entry.type === 'Income' && theme === 'light'
+                    ? '#14ff99'
+                    : entry.type === 'Income' && theme === 'dark'
+                      ? '#82ca9d'
+                      : entry.type === 'Expense' && theme === 'light'
+                        ? '#ff1b1bec'
+                        : entry.type === 'Expense' && theme === 'dark'
+                          ? '#dc5454ec'
+                          : entry.type !== 'Expense' &&
+                              entry.type !== 'Income' &&
+                              theme !== 'dark'
+                            ? '#9400D3'
+                            : '#8884d8'
+                }
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
+export default ResultsChart;
