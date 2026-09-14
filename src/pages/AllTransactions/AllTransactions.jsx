@@ -1562,7 +1562,7 @@ const AllTransactions = () => {
             )}
 
             {/* ================================ FILTER BUTTON ================================= */}
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end max-sm:dropdown-center">
               <label
                 tabIndex={0}
                 className={`btn ${
