@@ -45,7 +45,7 @@ const FinancialBalance = ({ totalBalance, totalIncome, totalExpense }) => {
 
       <div className="flex justify-center gap-x-6 max-sm:flex-col sm:flex-col md:flex-col lg:flex-row gap-6">
         <div
-          className={`lg:w-110 h-105 md:w-full rounded-2xl ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#6b96e5] via-[#83abf5] to-[#5f86d0]'}`}
+          className={`lg:w-110 h-105 md:w-full rounded-2xl max-sm:h-115 ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#6b96e5] via-[#83abf5] to-[#5f86d0]'}`}
         >
           <p className="px-5 py-10 text-white font-semibold text-2xl">
             Total Balance
@@ -91,7 +91,7 @@ const FinancialBalance = ({ totalBalance, totalIncome, totalExpense }) => {
         </div>
 
         <div
-          className={`lg:w-80 md:w-full h-105 rounded-2xl ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#55d39d] via-[#60e2aa] to-[#3ea478'}`}
+          className={`lg:w-80 md:w-full h-105 rounded-2xl max-sm:h-115 ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#55d39d] via-[#60e2aa] to-[#3ea478'}`}
         >
           <p
             className={`px-5 py-10 font-semibold text-2xl ${
@@ -159,7 +159,7 @@ const FinancialBalance = ({ totalBalance, totalIncome, totalExpense }) => {
         </div>
 
         <div
-          className={`lg:w-80 md:w-full h-105 rounded-2xl ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#b6a4fee7] via-[#c8baffe7] to-[#b6a3ffe7]'}`}
+          className={`lg:w-80 md:w-full h-105 rounded-2xl max-sm:h-115 ${theme === 'dark' ? 'bg-base-300' : 'bg-linear-to-br from-[#b6a4fee7] via-[#c8baffe7] to-[#b6a3ffe7]'}`}
         >
           <p
             className={`px-5 py-10 font-semibold text-2xl  ${
