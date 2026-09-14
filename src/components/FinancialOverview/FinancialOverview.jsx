@@ -563,6 +563,7 @@ const FinancialOverview = () => {
 
         if (error.response) {
           const status = error.response?.status;
+          console.log(`Server error: ${status}`);
 
           // 400
           if (status === 400) {

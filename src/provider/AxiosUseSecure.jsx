@@ -28,8 +28,19 @@ import { useEffect } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import AxiosUseAuthProvider from './AxiosUseAuthProvider';
 
+// ============== //
+// const axiosSecure = axios.create({
+//   baseURL: 'http://localhost:3000',
+// });
+
+// ============== //
+// const axiosSecure = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL,
+// });
+
+// ============== //
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 const AxiosUseSecure = () => {
