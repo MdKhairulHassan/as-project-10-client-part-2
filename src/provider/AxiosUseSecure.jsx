@@ -29,9 +29,9 @@ import { useEffect } from 'react';
 import AxiosUseAuthProvider from './AxiosUseAuthProvider';
 
 // ============== //
-// const axiosSecure = axios.create({
-//   baseURL: 'http://localhost:3000',
-// });
+const axiosSecure = axios.create({
+  baseURL: 'http://localhost:3000',
+});
 
 // ============== //
 // const axiosSecure = axios.create({
@@ -39,9 +39,9 @@ import AxiosUseAuthProvider from './AxiosUseAuthProvider';
 // });
 
 // ============== //
-const axiosSecure = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-});
+// const axiosSecure = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL,
+// });
 
 const AxiosUseSecure = () => {
   const [{ user }] = AxiosUseAuthProvider();

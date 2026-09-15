@@ -2,17 +2,20 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Logo from '../../assets/Logo.png';
 import LoginImage from '../../assets/login-image.png';
-import { use, useState } from 'react';
+import { useState } from 'react';
 // import { AuthContext } from '../../provider/AuthProvider';
 import { FaRegEye } from 'react-icons/fa';
 import { LuEyeClosed } from 'react-icons/lu';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../provider/AuthContext';
-import { ThemeContext } from '../../provider/ThemeContext';
+// import { AuthContext } from '../../provider/AuthContext';
+// import { ThemeContext } from '../../provider/ThemeContext';
+import AxiosUseAuthProvider from '../../provider/AxiosUseAuthProvider';
 
 const Register = () => {
-  const { createUser, setUser, updateUser, googleSignIn } = use(AuthContext);
-  const { theme } = use(ThemeContext);
+  // const { createUser, setUser, updateUser, googleSignIn } = use(AuthContext);
+  // const { theme } = use(ThemeContext);
+  const [{ createUser, setUser, updateUser, googleSignIn }, { theme }] =
+    AxiosUseAuthProvider();
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -156,6 +159,8 @@ const Register = () => {
         toast.error(errorMessage, {
           theme: theme,
         });
+        setUser(null);
+        window.location.reload();
         // alert(errorMessage, errorCode);
       });
     // .then(result => {
