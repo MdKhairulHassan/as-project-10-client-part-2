@@ -80,32 +80,36 @@ const Navbar = () => {
           </span>
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to={'/allTransactions'}
-          className={
-            'flex flex-col hover:bg-[#c09cff86] [&.active]:bg-[#98ffdd]'
-          }
-        >
-          <ImProfile className="text-lg text-primary" />
-          <span className="text-[0.70rem] text-secondary ">
-            My Transactions
-          </span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={'/reports'}
-          className={
-            'flex flex-col hover:bg-[#c09cff86] [&.active]:bg-[#98ffdd]'
-          }
-        >
-          <BsBarChartLineFill className="text-lg text-primary" />
-          <span className="text-[0.70rem] text-secondary">Reports</span>
-        </NavLink>
-      </li>
-      <li>
-        {user && (
+      {user && (
+        <li>
+          <NavLink
+            to={'/allTransactions'}
+            className={
+              'flex flex-col hover:bg-[#c09cff86] [&.active]:bg-[#98ffdd]'
+            }
+          >
+            <ImProfile className="text-lg text-primary" />
+            <span className="text-[0.70rem] text-secondary ">
+              My Transactions
+            </span>
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink
+            to={'/reports'}
+            className={
+              'flex flex-col hover:bg-[#c09cff86] [&.active]:bg-[#98ffdd]'
+            }
+          >
+            <BsBarChartLineFill className="text-lg text-primary" />
+            <span className="text-[0.70rem] text-secondary">Reports</span>
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
           <NavLink
             to={'/myprofile/profile'}
             className={
@@ -115,8 +119,8 @@ const Navbar = () => {
             <MdOutlineManageAccounts className="text-lg text-primary" />
             <span className="text-[0.70rem] text-secondary ">My Profile</span>
           </NavLink>
-        )}
-      </li>
+        </li>
+      )}
       <li>
         {/* <button
           onClick={toggleTheme}
