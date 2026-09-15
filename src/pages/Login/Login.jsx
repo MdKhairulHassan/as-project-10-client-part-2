@@ -118,6 +118,7 @@ const Login = () => {
     // console.log('google button clicked');
     googleSignIn()
       .then(() => {
+        
         setSuccess(true);
         toast.success('Login successfully', {
           theme: theme,
