@@ -118,7 +118,7 @@ const Login = () => {
     // console.log('google button clicked');
     googleSignIn()
       .then(() => {
-        
+
         setSuccess(true);
         toast.success('Login successfully', {
           theme: theme,
@@ -148,6 +148,33 @@ const Login = () => {
     // });
   };
 
+  // ========================================================================= update by try catch function
+  // const handleGoogleSignIn = async () => {
+  //   try {
+  //     setError('');
+  //     setSuccess(false);
+  //     // console.log('google button clicked');
+  //     await googleSignIn();
+
+  //     setSuccess(true);
+  //     toast.success('Login successfully', {
+  //       theme: theme,
+  //     });
+  //     navigate(`${location?.state?.from ? location?.state?.from : '/'}`);
+  //   } catch (error) {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     setError(errorCode);
+  //     toast.error(errorMessage, {
+  //       theme: theme,
+  //     });
+  //     setUser(null);
+  //     window.location.reload();
+  //     // alert(errorMessage, errorCode);
+  //   }
+  // };
+
+  // ====================================================================================================
   const handleTogglePasswordShow = e => {
     e.preventDefault();
     setShowPassword(!showPassword);
