@@ -939,12 +939,14 @@ const AddTransactions = () => {
           return;
         }
 
+        // exponential backoff + jitter
         // Exponential backoff
         const exponentialDelay = Math.min(
           BASE_DELAY * 2 ** (retryCount - 1),
           MAX_DELAY,
         );
 
+        // jitter
         // Random 0-1000ms
         const jitter = Math.floor(Math.random() * 1000);
 
