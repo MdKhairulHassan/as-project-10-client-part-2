@@ -1203,7 +1203,7 @@ const AddTransactions = () => {
                       </span>
                     </label>
 
-                    <label className="input input-bordered flex items-center gap-3 rounded-xl bg-base-100 cursor-not-allowed">
+                    <label className="input input-bordered flex items-center gap-3 rounded-xl bg-base-100">
                       <User size={18} className="text-cyan-500" />
 
                       <input
